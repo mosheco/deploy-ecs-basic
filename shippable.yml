@@ -24,7 +24,7 @@ build:
   ci:
     # npm mirrors can sometimes be flacky, better to use shippable_retry
     # http://docs.shippable.com/ci/advancedOptions/retry/
-    - docker images
+    - docker run  --rm -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:/tmp aquasec/scanner-cli:2.0 --image mongo:latest --host https://train.aquasec.com --user moshe --password moshe1234 --local --htmlfile out.html --jsonfile out.json --show-negligible
     
 
 
